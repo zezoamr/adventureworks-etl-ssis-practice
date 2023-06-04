@@ -1,0 +1,52 @@
+insert into dbo.DELTADT
+
+SELECT        derivedtbl_2.CURRENCY ,derivedtbl_4.Customer  ,derivedtbl_3.Business_Entity
+ ,derivedtbl_1.PERSON ,derivedtbl_5.PersonAddress ,derivedtbl_6.Product
+,derivedtbl_7.ProductCategory ,derivedtbl_8.ProductSubCategory ,derivedtbl_9.SalesHeader 
+,derivedtbl_10.SalesOrderDetail ,derivedtbl_11.SalesTerritory ,derivedtbl_12.Store
+,derivedtbl_13.Employee ,derivedtbl_14.EmployeeDepartmentHistory ,derivedtbl_15.EmployeePayHistory
+
+FROM                         (SELECT        MAX(ModifiedDate) AS PERSON
+                              FROM            erp.Person) AS derivedtbl_1 
+                              CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS CURRENCY
+                               FROM            erp.Currency) AS derivedtbl_2 
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS Business_Entity
+                               FROM            erp.Business_Entity) AS derivedtbl_3
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS Customer
+                               FROM            erp.Customer) AS derivedtbl_4
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS PersonAddress
+                               FROM            erp.PersonAddress) AS derivedtbl_5
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS Product
+                               FROM            erp.Product) AS derivedtbl_6
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS ProductCategory
+                               FROM            erp.ProductCategory) AS derivedtbl_7
+                               CROSS JOIN
+                             (SELECT        MAX(ModifiedDate) AS ProductSubCategory
+                               FROM            erp.ProductSubCategory) AS derivedtbl_8
+                               CROSS JOIN
+                               (SELECT        MAX(ModifiedDate) AS SalesHeader
+                               FROM            erp.SalesHeader) AS derivedtbl_9
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS SalesOrderDetail
+                               FROM            erp.SalesOrderDetail) AS derivedtbl_10 
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS SalesTerritory
+                               FROM            erp.SalesTerritory) AS derivedtbl_11 
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS Store
+                               FROM            erp.Store) AS derivedtbl_12 
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS Employee
+                               FROM            hr.Employee) AS derivedtbl_13
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS EmployeeDepartmentHistory
+                               FROM            hr.EmployeeDepartmentHistory) AS derivedtbl_14
+                               CROSS JOIN
+                              (SELECT        MAX(ModifiedDate) AS EmployeePayHistory
+                               FROM            hr.EmployeePayHistory) AS derivedtbl_15

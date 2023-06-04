@@ -1,0 +1,15 @@
+Truncate table [hr].[EmployeeDepartmentHistory];
+Truncate table [hr].[EmployeePayHistory];
+Truncate table [hr].[Employee];
+Truncate table [erp].[Business_Entity];
+Truncate table [erp].[Currency];
+Truncate table [erp].[Customer];
+Truncate table [erp].[Person];
+Truncate table [erp].[PersonAddress];
+Truncate table [erp].[product];
+Truncate table [erp].[ProductCategory];
+Truncate table [erp].[ProductSubCategory];
+Truncate table [erp].[Store];
+Truncate table [erp].[SalesTerritory];
+Truncate table [erp].[SalesHeader];
+Truncate table [erp].[SalesOrderDetail];

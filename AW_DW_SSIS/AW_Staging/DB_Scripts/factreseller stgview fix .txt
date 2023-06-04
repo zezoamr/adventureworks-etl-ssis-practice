@@ -1,0 +1,39 @@
+ALTER view [dbo].[Stg_vw_Erp_Fact_ResellerSales]
+as
+select h.[SalesOrderID],
+ row_number() over(partition by h.[SalesOrderID] order by h.modifieddate) as saleLineNumber,
+p.ProductNumber,
+cast(h.[OrderDate] as date) [OrderDate] ,
+cast(h.[DueDate] as Date) [DueDate],
+cast(h.[ShipDate] as date) [ShipDate],
+ cast(c.[StoreID] as int) ResellerID,
+h.[TerritoryID],
+e.NationalIDNumber,
+N'USD' Currency,  
+null [RevisionNumber],
+[OrderQty],
+[UnitPrice],
+[UnitPriceDiscount],
+[LineTotal],
+0 [TaxAmt]
+
+ from [erp].[SalesHeader] h
+left join [erp].[SalesOrderDetail]  o
+on h.SalesOrderID = o.SalesOrderID
+
+left join [erp].[Product] p 
+on o.[ProductID] = p.ProductID
+
+left join [erp].[Customer] c
+on h.[CustomerID] = c.[CustomerID]
+
+left join [hr].[Employee] e
+on e.[BusinessEntityID] = h.SalesPersonID
+where OnlineOrderFlag=0 -- This is to filter  ResellerSales
+
+
+
+
+
+GO
+

@@ -1,0 +1,35 @@
+USE [AWN_STG_Demo]
+GO
+
+/****** Object:  Table [erp].[Currency]    Script Date: 8/17/2022 11:12:52 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [DELTADT](
+	[Currency] [datetime] NULL,
+	[Customer] [datetime] NULL,
+	[Business_Entity] [datetime] NULL,
+	[Person] [datetime] NULL,
+	[PersonAddress] [datetime] NULL,
+	[Product] [datetime] NULL,
+	[ProductCategory] [datetime] NULL,
+	[ProductSubCategory] [datetime] NULL,
+	[SalesHeader] [datetime] NULL,
+	[SalesOrderDetail] [datetime] NULL,
+	[SalesTerritory] [datetime] NULL,
+	[Store] [datetime] NULL,
+	[Employee] [datetime] NULL,
+	[EmployeeDepartmentHistory] [datetime] NULL,
+	[EmployeePayHistory] [datetime] NULL
+
+
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [erp].[Currency] ADD  DEFAULT (getdate()) FOR [Created_Dt]
+GO
+
+

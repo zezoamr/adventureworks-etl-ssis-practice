@@ -1,0 +1,1 @@
+use [AdventureWorks2019] EXEC sp_changedbowner 'sa'

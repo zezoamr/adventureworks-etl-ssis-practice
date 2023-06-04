@@ -1,0 +1,24 @@
+initial load problems
+currency table
+customer
+both done :)
+
+stg product sub cat modified date missing add / salesterritory
+done :)
+
+datawarehouse dimension reseller alternate key should be int storeid not string 
+done fix :)
+
+product view sizerange was wrong gonna make it as 
+p.SizeUnitMeasureCode SizeRange,
+
+product dimension need to adjust not null/null 
+adjusted in script itself done
+
+dw product dimesnion doesn't have start and end date fixing that nah gonna use status instead
+
+dw customer dimension has a bunch of fields which can't be inferred from staging or original
+database decided to leave the dim intact in case of info becoming available in the future
+
+reseller fact table view in stg changed storeid/resellerid to int instead of nvarchar
+and fact internetsales
